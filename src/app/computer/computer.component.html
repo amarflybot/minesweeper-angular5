@@ -1,5 +1,21 @@
 <div class="starter-template">
-<p>
-  computer works!
-</p>
+  <div class="float-left">Board State: {{board._state}}</div>
+  <div>
+    <a class="float-right btn btn-light" (click)="playGame()">Play Game</a>
+    <div>Player Chance: {{currentPlayer().getName()}}</div>
+    <a class="btn btn-light" (click)="createShip()">Create Ship</a>
+  </div>
+  <div *ngIf="board._state != 'OVER'; else elseBlock">
+    <table class="table table-bordered cell-hover">
+      <tbody>
+      <tr *ngFor="let cells of board.cells">
+        <td *ngFor="let cell of cells">
+          <a class="btn btn-light" (click)="cellClicked(cell)">
+            {{cell._state}}</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #elseBlock>Winner Is : {{currentPlayer().getName()}}</ng-template>
 </div>

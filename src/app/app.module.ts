@@ -5,9 +5,11 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './/app-routing.module';
 import {AppNavbarComponent} from './app-navbar/app-navbar.component';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {FormsModule} from '@angular/forms';
-import { ComputerComponent } from './computer/computer.component';
+import {ComputerComponent} from './computer/computer.component';
+import {GameService} from './services/game.service';
+import {AsyncLocalStorageModule} from 'angular-async-local-storage';
 
 
 @NgModule({
@@ -20,9 +22,11 @@ import { ComputerComponent } from './computer/computer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AsyncLocalStorageModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
